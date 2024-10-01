@@ -424,10 +424,12 @@ import json
 
 sklear_iris_input = dict(instances = [
         [6.8, 2.8, 4.8, 1.4],
-        [6.0, 3.4, 4.5, 1.6]
+        [6.0, 3.4, 4.5, 1.6],
+        [5.0, 3.4, 1.5, 0.2], 
+        [6.5, 3.0, 5.8, 2.2]
     ])
 
-response_external = requests.post("http://sklearn-iris.kubeflow-user-example-com.10.0.2.6.sslip.io/v1/models/sklearn-iris:predict", data = json.dumps(sklear_iris_input))   
+response_external = requests.post("http://sklearn-iris.kubeflow-user-example-com.svc.cluster.local/v1/models/sklearn-iris:predict", data = json.dumps(sklear_iris_input))   
 
 print(response_external.text)
 ```
